@@ -99,7 +99,7 @@
 		ADF269E028903E1300852B52 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				ADF269EC2890420A00852B52 /* RemoteFeedLoaderTests.swift */,
+				ADF26A102894343100852B52 /* FeedAPI */,
 				ADF269F4289043B900852B52 /* EssentialFeedTests-Bridging-Header.h */,
 			);
 			path = EssentialFeedTests;
@@ -113,6 +113,14 @@
 				ADF26A0E28942C5E00852B52 /* FeedItemsMapper.swift */,
 			);
 			path = "Feed API";
+			sourceTree = "<group>";
+		};
+		ADF26A102894343100852B52 /* FeedAPI */ = {
+			isa = PBXGroup;
+			children = (
+				ADF269EC2890420A00852B52 /* RemoteFeedLoaderTests.swift */,
+			);
+			path = FeedAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
