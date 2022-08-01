@@ -15,7 +15,7 @@ class URLSessionHTTPClient {
     }
     
     func get(from url: URL) {
-        session.dataTask(with: url).resume()
+        session.dataTask(with: url, completionHandler: { _, _, _ in }).resume()
     }
 }
 
@@ -47,6 +47,8 @@ class URLSessionHTTPClientTests: XCTestCase {
         var receivedURLs = [URL]()
         private var stubs = [URL: URLSessionDataTask]()
         
+        override init() {}
+        
         override func dataTask(with url: URL) -> URLSessionDataTask {
             receivedURLs.append(url)
             
@@ -59,6 +61,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     private class FakeURLSessionDataTask: URLSessionDataTask {
+        override init() {}
         override func resume() {
             
         }
