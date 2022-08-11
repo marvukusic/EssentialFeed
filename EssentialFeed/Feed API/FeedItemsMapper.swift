@@ -23,3 +23,7 @@ internal final class FeedItemsMapper {
         return root.items
     }
 }
+
+func randomCode() {
+    print("dfsfasd")
+}
