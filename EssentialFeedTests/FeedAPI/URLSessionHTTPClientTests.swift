@@ -38,8 +38,8 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     func test_getFromURL_failsOnRequestError() {
-        let requestError = anyError()
-        let receivedError = resultErrorFor(data: nil, response: nil, error: anyError()) as? NSError
+        let requestError = anyNSError()
+        let receivedError = resultErrorFor(data: nil, response: nil, error: anyNSError()) as? NSError
         
         XCTAssertEqual(receivedError?.domain, requestError.domain)
         XCTAssertEqual(receivedError?.code, requestError.code)
@@ -49,10 +49,10 @@ class URLSessionHTTPClientTests: XCTestCase {
         XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
         XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse(), error: nil))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nil, error: nil))
-        XCTAssertNotNil(resultErrorFor(data: anyData(), response: nil, error: anyError()))
-        XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse(), error: anyError()))
-        XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse(), error: anyError()))
-        XCTAssertNotNil(resultErrorFor(data: anyData(), response: anyHTTPURLResponse(), error: anyError()))
+        XCTAssertNotNil(resultErrorFor(data: anyData(), response: nil, error: anyNSError()))
+        XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse(), error: anyNSError()))
+        XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse(), error: anyNSError()))
+        XCTAssertNotNil(resultErrorFor(data: anyData(), response: anyHTTPURLResponse(), error: anyNSError()))
         XCTAssertNotNil(resultErrorFor(data: anyData(), response: nonHTTPURLResponse(), error: nil))
     }
     
@@ -124,20 +124,12 @@ class URLSessionHTTPClientTests: XCTestCase {
         return receivedResult
     }
     
-    private func anyURL() -> URL {
-        URL(string: "https://a-url.com")!
-    }
-    
     private func anyData() -> Data {
         Data("any data".utf8)
     }
     
     private func emptyData() -> Data {
         Data()
-    }
-    
-    private func anyError() -> NSError {
-        NSError(domain: "any error", code: 0)
     }
     
     private func nonHTTPURLResponse() -> URLResponse {

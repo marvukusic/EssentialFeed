@@ -20,7 +20,7 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         
         sut.validateCache()
-        store.completeRetrieval(with: anyError())
+        store.completeRetrieval(with: anyNSError())
         
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCachedFeed])
     }
@@ -54,33 +54,5 @@ class ValidateFeedCacheUseCaseTests: XCTestCase {
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, store)
-    }
-
-    private func anyError() -> NSError {
-        NSError(domain: "any error", code: 0)
-    }
-    
-    private func anyURL() -> URL {
-        URL(string: "https://a-url.com")!
-    }
-    
-    private func uniqueImage() -> FeedImage {
-        FeedImage(id: UUID(), description: nil, location: nil, url: anyURL())
-    }
-    
-    private func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
-        let models = [uniqueImage(), uniqueImage()]
-        let local = models.map { LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.url) }
-        return (models: models, local: local)
-    }
-}
-
-private extension Date {
-    func adding(days: Int) -> Date {
-        Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
-    }
-    
-    func adding(seconds: TimeInterval) -> Date {
-        self + seconds
     }
 }

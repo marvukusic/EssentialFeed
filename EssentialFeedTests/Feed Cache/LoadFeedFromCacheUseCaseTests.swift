@@ -26,7 +26,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
     
     func test_load_failsOnRetrievalError() {
         let (sut, store) = makeSUT()
-        let retreivalError = anyError()
+        let retreivalError = anyNSError()
         
         expect(sut, toCompleteWith: .failure(retreivalError)) {
             store.completeRetrieval(with: retreivalError)
@@ -78,7 +78,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         
         sut.load() { _ in }
-        store.completeRetrieval(with: anyError())
+        store.completeRetrieval(with: anyNSError())
         
         XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
@@ -169,32 +169,5 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         action()
         wait(for: [exp], timeout: 1.0)
     }
-    
-    private func anyError() -> NSError {
-        NSError(domain: "any error", code: 0)
-    }
-    
-    private func uniqueImage() -> FeedImage {
-        FeedImage(id: UUID(), description: nil, location: nil, url: anyURL())
-    }
-    
-    private func uniqueImageFeed() -> (models: [FeedImage], local: [LocalFeedImage]) {
-        let models = [uniqueImage(), uniqueImage()]
-        let local = models.map { LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.url) }
-        return (models: models, local: local)
-    }
-    
-    private func anyURL() -> URL {
-        URL(string: "https://a-url.com")!
-    }
 }
 
-private extension Date {
-    func adding(days: Int) -> Date {
-        Calendar(identifier: .gregorian).date(byAdding: .day, value: days, to: self)!
-    }
-    
-    func adding(seconds: TimeInterval) -> Date {
-        self + seconds
-    }
-}
