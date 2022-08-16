@@ -29,7 +29,7 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         let retreivalError = anyError()
         
         expect(sut, toCompleteWith: .failure(retreivalError)) {
-            store.completeRetreival(with: retreivalError)
+            store.completeRetrieval(with: retreivalError)
         }
     }
     
@@ -74,13 +74,13 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
         }
     }
     
-    func test_load_deletesCacheOnRetreivalError() {
+    func test_load_hasNoSideEffectsOnRetreivalError() {
         let (sut, store) = makeSUT()
         
         sut.load() { _ in }
-        store.completeRetreival(with: anyError())
+        store.completeRetrieval(with: anyError())
         
-        XCTAssertEqual(store.receivedMessages, [.retrieve, .deleteCachedFeed])
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
     }
     
     func test_load_doesNotDeleteCacheOnEmptyCache() {
