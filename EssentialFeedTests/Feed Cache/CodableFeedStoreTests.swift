@@ -174,63 +174,10 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     
     // - MARK: Helpers
     
-    private func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> FeedStore {
+    func makeSUT(storeURL: URL? = nil, file: StaticString = #file, line: UInt = #line) -> FeedStore {
         let sut = CodableFeedStore(storeURL: storeURL ?? testSpecificStoreURL())
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
-    }
-    
-    @discardableResult
-    private func insert(_ cache: (feed: [LocalFeedImage], timestamp: Date), to sut: FeedStore, file: StaticString = #file, line: UInt = #line) -> Error? {
-        let exp = expectation(description: "Wait for insertion completion")
-        
-        var insertionError: Error?
-        sut.insert(cache.feed, timestamp: cache.timestamp) { receivedInsertionError in
-            insertionError = receivedInsertionError
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 1.0)
-        return insertionError
-    }
-    
-    private func expect(_ sut: FeedStore, toRetreive expectedResult: RetreiveCachedFeedResult, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Wait for retrieve completion")
-        
-        sut.retrieve { retrievedResult in
-            switch (retrievedResult, expectedResult) {
-            case (.empty, .empty),
-                (.failure, .failure):
-                break
-            
-            case let (.found(retrievedFeed, retrievedTimestamp), .found(expectedFeed, expectedTimestamp)):
-                XCTAssertEqual(expectedFeed, retrievedFeed, file: file, line: line)
-                XCTAssertEqual(expectedTimestamp, retrievedTimestamp, file: file, line: line)
-                
-            default:
-                XCTFail("Expected found result, but received \(retrievedResult), \(expectedResult)")
-            }
-            exp.fulfill()
-        }
-        
-        wait(for: [exp], timeout: 1.0)
-    }
-    
-    @discardableResult
-    private func deleteCache(from sut: FeedStore) -> Error? {
-        let exp = expectation(description: "Wait for deletion completion")
-
-        var deletionError: Error?
-        sut.deleteCachedFeed { receivedDeletionError in
-            deletionError = receivedDeletionError
-            exp.fulfill()
-        }
-        wait(for: [exp], timeout: 5.0)
-        return deletionError
-    }
-    
-    private func expect(_ sut: FeedStore, toRetreiveTwice expectedResult: RetreiveCachedFeedResult, file: StaticString = #file, line: UInt = #line) {
-        expect(sut, toRetreive: expectedResult)
-        expect(sut, toRetreive: expectedResult)
     }
     
     private func setupEmptyStoreState() {

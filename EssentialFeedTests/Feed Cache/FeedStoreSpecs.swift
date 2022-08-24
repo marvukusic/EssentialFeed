@@ -37,3 +37,4 @@ protocol FailableDeleteFeedStoreSpecs: FeedStoreSpecs {
 }
 
 typealias FailableFeedStoreSpecs = FailableRetreiveFeedStoreSpecs & FailableInsertFeedStoreSpecs & FailableDeleteFeedStoreSpecs
+
