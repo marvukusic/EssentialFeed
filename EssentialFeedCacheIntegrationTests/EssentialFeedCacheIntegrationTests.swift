@@ -33,12 +33,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
         
-        let saveExp = expectation(description: "Waiting for save")
-        sutToPerformSave.save(feed) { saveError in
-            XCTAssertNil(saveError, "Error saving feed")
-            saveExp.fulfill()
-        }
-        wait(for: [saveExp], timeout: 1.0)
+        save(feed, with: sutToPerformSave)
         
         expect(sutToPerformLoad, toLoad: .success(feed))
     }
@@ -50,19 +45,8 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         let firstFeed = uniqueImageFeed().models
         let lastFeed = uniqueImageFeed().models
         
-        let firstSaveExp = expectation(description: "Waiting for save")
-        sutToPerformFirstSave.save(firstFeed) { saveError in
-            XCTAssertNil(saveError, "Error saving feed")
-            firstSaveExp.fulfill()
-        }
-        wait(for: [firstSaveExp], timeout: 1.0)
-        
-        let secondSaveExp = expectation(description: "Waiting for save")
-        sutToPerformLastSave.save(lastFeed) { saveError in
-            XCTAssertNil(saveError, "Error saving feed")
-            secondSaveExp.fulfill()
-        }
-        wait(for: [secondSaveExp], timeout: 1.0)
+        save(firstFeed, with: sutToPerformFirstSave)
+        save(lastFeed, with: sutToPerformLastSave)
         
         expect(sutToPerformLoad, toLoad: .success(lastFeed))
     }
@@ -94,7 +78,14 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
-//    private func save(feed: [LocalFeedImage])
+    private func save(_ feed: [FeedImage], with sut: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Waiting for save")
+        sut.save(feed) { saveError in
+            XCTAssertNil(saveError, "Error saving feed", file: file, line: line)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
     
     private func setupEmptyStoreState() {
         deleteStoreArtifacts()
