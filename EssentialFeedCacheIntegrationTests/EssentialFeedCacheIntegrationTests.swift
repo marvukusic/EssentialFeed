@@ -30,6 +30,7 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
     
     func test_load_deliversItemsSavedOnASeparateInstance() {
         let sutToPerformSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
         let feed = uniqueImageFeed().models
         
         let saveExp = expectation(description: "Waiting for save")
@@ -39,9 +40,31 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         }
         wait(for: [saveExp], timeout: 1.0)
         
-        let sutToPerformLoad = makeSUT()
-        
         expect(sutToPerformLoad, toLoad: .success(feed))
+    }
+    
+    func test_save_overridesItemsSavedOnASeparateInstance() {
+        let sutToPerformFirstSave = makeSUT()
+        let sutToPerformLastSave = makeSUT()
+        let sutToPerformLoad = makeSUT()
+        let firstFeed = uniqueImageFeed().models
+        let lastFeed = uniqueImageFeed().models
+        
+        let firstSaveExp = expectation(description: "Waiting for save")
+        sutToPerformFirstSave.save(firstFeed) { saveError in
+            XCTAssertNil(saveError, "Error saving feed")
+            firstSaveExp.fulfill()
+        }
+        wait(for: [firstSaveExp], timeout: 1.0)
+        
+        let secondSaveExp = expectation(description: "Waiting for save")
+        sutToPerformLastSave.save(lastFeed) { saveError in
+            XCTAssertNil(saveError, "Error saving feed")
+            secondSaveExp.fulfill()
+        }
+        wait(for: [secondSaveExp], timeout: 1.0)
+        
+        expect(sutToPerformLoad, toLoad: .success(lastFeed))
     }
 
     //MARK: - Helpers
@@ -70,6 +93,8 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
         }
         wait(for: [exp], timeout: 1.0)
     }
+    
+//    private func save(feed: [LocalFeedImage])
     
     private func setupEmptyStoreState() {
         deleteStoreArtifacts()
