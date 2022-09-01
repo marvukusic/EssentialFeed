@@ -29,7 +29,7 @@ extension ManagedFeedImage {
     }
     
     var local: LocalFeedImage {
-        LocalFeedImage(id: id, description: description, location: location, url: url)
+        LocalFeedImage(id: id, description: imageDescription, location: location, url: url)
     }
 }
 
