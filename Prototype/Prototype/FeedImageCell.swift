@@ -75,4 +75,4 @@ private extension UIView {
     func stopShimmering() {
         layer.mask = nil
     }
-    }
+}
