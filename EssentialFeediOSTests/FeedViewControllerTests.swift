@@ -115,9 +115,8 @@ class FeedViewControllerTests: XCTestCase {
         loader.completeFeedLoading(with: [makeImage(), makeImage()], at: 0)
         
         let view0 = sut.simulateFeedImageViewVisible(at: 0)
-        XCTAssertEqual(view0?.isShowingLoadingIndicator, true)
-        
         let view1 = sut.simulateFeedImageViewVisible(at: 1)
+        XCTAssertEqual(view0?.isShowingLoadingIndicator, true)
         XCTAssertEqual(view1?.isShowingLoadingIndicator, true)
         
         loader.completeImageLoading(at: 0)
@@ -127,6 +126,28 @@ class FeedViewControllerTests: XCTestCase {
         loader.completeImageLoadingWithError(at: 1)
         XCTAssertEqual(view0?.isShowingLoadingIndicator, false)
         XCTAssertEqual(view1?.isShowingLoadingIndicator, false)
+    }
+    
+    func test_feedImageView_rendersImageLoadedFromURL() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage(), makeImage()], at: 0)
+        
+        let view0 = sut.simulateFeedImageViewVisible(at: 0)
+        let view1 = sut.simulateFeedImageViewVisible(at: 1)
+        XCTAssertEqual(view0?.renderedImage, .none)
+        XCTAssertEqual(view1?.renderedImage, .none)
+        
+        let imageData0 = UIImage.make(withColor: .red).pngData()!
+        loader.completeImageLoading(with: imageData0, at: 0)
+        XCTAssertEqual(view0?.renderedImage, imageData0)
+        XCTAssertEqual(view1?.renderedImage, .none)
+        
+        let imageData1 = UIImage.make(withColor: .blue).pngData()!
+        loader.completeImageLoading(with: imageData1, at: 1)
+        XCTAssertEqual(view0?.renderedImage, imageData0)
+        XCTAssertEqual(view1?.renderedImage, imageData1)
     }
     
     // MARK: - Helpers
@@ -257,6 +278,7 @@ extension FeedImageCell {
     var descriptionText: String? { descriptionLabel.text }
     var locationText: String? { locationLabel.text }
     var isShowingLoadingIndicator: Bool { feedImageContainer.isShimmering }
+    var renderedImage: Data? { feedImageView.image?.pngData() }
 }
 
 private extension UIRefreshControl {
@@ -269,4 +291,15 @@ private extension UIRefreshControl {
     }
 }
 
-
+private extension UIImage {
+    static func make(withColor color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()!
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img!
+    }
+}
