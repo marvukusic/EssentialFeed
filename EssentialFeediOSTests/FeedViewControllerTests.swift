@@ -150,6 +150,27 @@ class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(view1?.renderedImage, imageData1)
     }
     
+    func test_feedImageViewRetryButton_isVisibleOnImageURLLoadError() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeFeedLoading(with: [makeImage(), makeImage()], at: 0)
+        
+        let view0 = sut.simulateFeedImageViewVisible(at: 0)
+        let view1 = sut.simulateFeedImageViewVisible(at: 1)
+        XCTAssertEqual(view0?.isShowingRetryAction, false)
+        XCTAssertEqual(view1?.isShowingRetryAction, false)
+        
+        let imageData0 = UIImage.make(withColor: .red).pngData()!
+        loader.completeImageLoading(with: imageData0, at: 0)
+        XCTAssertEqual(view0?.isShowingRetryAction, false)
+        XCTAssertEqual(view1?.isShowingRetryAction, false)
+        
+        loader.completeImageLoadingWithError(at: 1)
+        XCTAssertEqual(view0?.isShowingRetryAction, false)
+        XCTAssertEqual(view1?.isShowingRetryAction, true)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedViewController, loader: LoaderSpy) {
@@ -279,6 +300,7 @@ extension FeedImageCell {
     var locationText: String? { locationLabel.text }
     var isShowingLoadingIndicator: Bool { feedImageContainer.isShimmering }
     var renderedImage: Data? { feedImageView.image?.pngData() }
+    var isShowingRetryAction: Bool { !feedImageRetryButton.isHidden }
 }
 
 private extension UIRefreshControl {
