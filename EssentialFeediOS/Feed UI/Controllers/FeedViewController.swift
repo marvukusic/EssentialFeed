@@ -5,15 +5,6 @@
 //  Created by Marko Vukušić on 06.09.2022.
 //
 
-public protocol FeedImageDataLoader {
-    typealias Result = Swift.Result<Data, Error>
-    func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> FeedImageDataLoaderTask
-}
-
-public protocol FeedImageDataLoaderTask {
-    func cancel()
-}
-
 import UIKit
 import EssentialFeed
 
