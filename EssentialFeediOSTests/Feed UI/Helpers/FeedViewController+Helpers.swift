@@ -59,12 +59,3 @@ extension FeedViewController {
     private var feedImagesSection: Int { 0 }
 }
 
-private extension UIRefreshControl {
-    func simulatePullToRefresh() {
-        allTargets.forEach { target in
-            actions(forTarget: target, forControlEvent: .valueChanged)?.forEach({
-                (target as NSObject).perform(Selector($0))
-            })
-        }
-    }
-}
