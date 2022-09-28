@@ -14,14 +14,22 @@ final public class FeedUIComposer {
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
         let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader)
 
-        let bundle = Bundle(for: FeedViewController.self)
-        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
-        let feedViewController = storyboard.instantiateInitialViewController() as! FeedViewController
-        feedViewController.delegate = presentationAdapter
-        feedViewController.title = FeedPresenter.title
+        let feedViewController = FeedViewController.createWith(delegate: presentationAdapter,
+                                                               title: FeedPresenter.title)
         
         let presenter = FeedPresenter(feedLoadingView: WeakRefVirtualProxy(feedViewController), feedView: FeedViewAdapter(controller: feedViewController, imageLoader: imageLoader))
         presentationAdapter.presenter = presenter
+        return feedViewController
+    }
+}
+
+extension FeedViewController {
+    static func createWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
+        let bundle = Bundle(for: FeedViewController.self)
+        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
+        let feedViewController = storyboard.instantiateInitialViewController() as! FeedViewController
+        feedViewController.delegate = delegate
+        feedViewController.title = title
         return feedViewController
     }
 }
