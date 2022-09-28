@@ -23,7 +23,7 @@ final public class FeedUIComposer {
     }
 }
 
-extension FeedViewController {
+private extension FeedViewController {
     static func createWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
         let bundle = Bundle(for: FeedViewController.self)
         let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
