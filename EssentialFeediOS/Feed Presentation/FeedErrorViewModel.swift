@@ -7,6 +7,18 @@
 
 import Foundation
 
-enum FeedErrorViewModel {
-    case noError, error(message: String)
+struct FeedErrorViewModel {
+    private(set) var message: String?
+    
+    init(message: String?) {
+        self.message = message
+    }
+    
+    static func noError() -> FeedErrorViewModel {
+        FeedErrorViewModel(message: .none)
+    }
+    
+    static func error(message: String) -> FeedErrorViewModel {
+        FeedErrorViewModel(message: message)
+    }
 }
