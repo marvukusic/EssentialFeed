@@ -1,12 +1,12 @@
 //
 //  FeedLoadingViewModel.swift
-//  EssentialFeediOS
+//  EssentialFeed
 //
 //  Created by Marko Vukušić on 26.10.2022.
 //
 
 import Foundation
 
-struct FeedLoadingViewModel {
-    let isLoading: Bool
+public struct FeedLoadingViewModel {
+    public let isLoading: Bool
 }
