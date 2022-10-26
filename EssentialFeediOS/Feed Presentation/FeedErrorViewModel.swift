@@ -8,11 +8,7 @@
 import Foundation
 
 struct FeedErrorViewModel {
-    private(set) var message: String?
-    
-    init(message: String?) {
-        self.message = message
-    }
+    let message: String?
     
     static func noError() -> FeedErrorViewModel {
         FeedErrorViewModel(message: .none)
