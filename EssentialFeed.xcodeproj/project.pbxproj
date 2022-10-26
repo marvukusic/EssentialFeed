@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD1C73F829092EE300093B8B /* FeeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C73F729092EE300093B8B /* FeeedPresenterTests.swift */; };
+		AD1C73FA2909370300093B8B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C73F92909370300093B8B /* ErrorView.swift */; };
 		AD72ABA128C7472E00630ED4 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD72ABA028C7472E00630ED4 /* FeedViewController.swift */; };
 		AD72ABA328C8AD8100630ED4 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD72ABA228C8AD8100630ED4 /* FeedImageCell.swift */; };
 		AD72ABA628CA2BEE00630ED4 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD72ABA528CA2BEE00630ED4 /* UIView+Shimmering.swift */; };
@@ -135,6 +136,7 @@
 
 /* Begin PBXFileReference section */
 		AD1C73F729092EE300093B8B /* FeeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeedPresenterTests.swift; sourceTree = "<group>"; };
+		AD1C73F92909370300093B8B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		AD72ABA028C7472E00630ED4 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		AD72ABA228C8AD8100630ED4 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		AD72ABA528CA2BEE00630ED4 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			children = (
 				AD72ABA228C8AD8100630ED4 /* FeedImageCell.swift */,
 				AD72ABA528CA2BEE00630ED4 /* UIView+Shimmering.swift */,
+				AD1C73F92909370300093B8B /* ErrorView.swift */,
 				ADDDED0528E1E21B00D90590 /* Feed.storyboard */,
 				ADDDED0728E1E2A000D90590 /* Feed.xcassets */,
 				ADDDED0928E1F1D500D90590 /* UITableView+Dequeing.swift */,
@@ -824,6 +827,7 @@
 				ADDDED0A28E1F1D500D90590 /* UITableView+Dequeing.swift in Sources */,
 				AD84E6D928D22AD4005B3762 /* FeedUIComposer.swift in Sources */,
 				ADDDECFB28D87A2400D90590 /* FeedImageViewModel.swift in Sources */,
+				AD1C73FA2909370300093B8B /* ErrorView.swift in Sources */,
 				ADDDED0C28E1F23A00D90590 /* UIImageView+Animations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

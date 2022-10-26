@@ -13,6 +13,14 @@ extension FeedViewController {
         refreshControl?.simulatePullToRefresh()
     }
     
+    func simulateTapOnErrorMessage() {
+        errorView?.button.simulateTap()
+    }
+    
+    var errorMessage: String? {
+        return errorView?.message
+    }
+    
     var isShowingLoadingIndicator: Bool {
         refreshControl?.isRefreshing == true
     }

@@ -7,3 +7,4 @@
 */
 
 "FEED_VIEW_TITLE" = "Moj Fid";
+"FEED_VIEW_CONNECTION_ERROR" = "Greška komunikacije";

@@ -13,6 +13,10 @@ class FeedPresenter {
     init(view: Any) {
         self.view = view
     }
+    
+    func didStartLoadingFeed() {
+        
+    }
 }
 
 final class FeeedPresenterTests: XCTestCase {
@@ -22,10 +26,22 @@ final class FeeedPresenterTests: XCTestCase {
         XCTAssertTrue(view.messages.isEmpty)
     }
     
+    func test_didStartLoadingFeed_displaysNoErrorMessage() {
+        let (sut, view) = makeSUT()
+        
+        sut.didStartLoadingFeed()
+        
+        XCTAssertTrue(view.messages.isEmpty)
+    }
+    
     // - MARK: Helpers
     
     private class ViewSpy {
-        let messages = [Any]()
+        enum Message {
+            case displayErrorMessage(String?)
+        }
+        
+        let messages = [Message]()
     }
     
     // MARK: - Helpers
