@@ -54,7 +54,7 @@
 		ADA9AC0028A5383500FD44CF /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA9ABFF28A5383500FD44CF /* LocalFeedImage.swift */; };
 		ADBC2D2728953A7C006A16DF /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBC2D2628953A7C006A16DF /* URLSessionHTTPClientTests.swift */; };
 		ADC77B74291D3E29000DDB48 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD84E6CC28D0BF02005B3762 /* FeedImageDataLoader.swift */; };
-		ADC77B76291D3E8B000DDB48 /* RemoteFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC77B75291D3E8B000DDB48 /* RemoteFeedImageDataLoaderTests.swift */; };
+		ADC77B76291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC77B75291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */; };
 		ADC77B79291D53CD000DDB48 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC77B78291D53CD000DDB48 /* HTTPClientSpy.swift */; };
 		ADC77B7B291D5448000DDB48 /* RemoteFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC77B7A291D5448000DDB48 /* RemoteFeedImageDataLoader.swift */; };
 		ADC77B7E291D58EF000DDB48 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC77B7D291D58EF000DDB48 /* HTTPURLResponse+StatusCode.swift */; };
@@ -189,7 +189,7 @@
 		ADA9ABFD28A5380900FD44CF /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 		ADA9ABFF28A5383500FD44CF /* LocalFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImage.swift; sourceTree = "<group>"; };
 		ADBC2D2628953A7C006A16DF /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
-		ADC77B75291D3E8B000DDB48 /* RemoteFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		ADC77B75291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedImageDataFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		ADC77B78291D53CD000DDB48 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		ADC77B7A291D5448000DDB48 /* RemoteFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedImageDataLoader.swift; sourceTree = "<group>"; };
 		ADC77B7D291D58EF000DDB48 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
@@ -588,8 +588,8 @@
 			children = (
 				ADC77B77291D53BA000DDB48 /* Helpers */,
 				ADF269EC2890420A00852B52 /* LoadFeedFromRemoteUseCaseTests.swift */,
+				ADC77B75291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
 				ADBC2D2628953A7C006A16DF /* URLSessionHTTPClientTests.swift */,
-				ADC77B75291D3E8B000DDB48 /* RemoteFeedImageDataLoaderTests.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
@@ -927,7 +927,7 @@
 				ADC77B81291D59DA000DDB48 /* URLProtocolStub.swift in Sources */,
 				AD81523428B7B4450084CDB7 /* CoreDataFeedStoreTests.swift in Sources */,
 				AD8151BA28ABA3D30084CDB7 /* ValidateFeedCacheUseCaseTests.swift in Sources */,
-				ADC77B76291D3E8B000DDB48 /* RemoteFeedImageDataLoaderTests.swift in Sources */,
+				ADC77B76291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift in Sources */,
 				ADF269ED2890420A00852B52 /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
 				AD1C74182909666D00093B8B /* FeedImagePresenterTests.swift in Sources */,
 				ADBC2D2728953A7C006A16DF /* URLSessionHTTPClientTests.swift in Sources */,
