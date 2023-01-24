@@ -7,8 +7,8 @@
 
 import Foundation
 
-public protocol FeedImageDataLoader {
-    typealias Result = Swift.Result<Data, Error>
+extension LocalFeedImageDataLoader: FeedImageDataCache {
+    public typealias SaveResult = FeedImageDataCache.Result
     func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> FeedImageDataLoaderTask
 }
 
