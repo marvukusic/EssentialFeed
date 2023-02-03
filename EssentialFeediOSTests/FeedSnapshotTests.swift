@@ -18,12 +18,20 @@ class FeedSnapshotTests: XCTestCase {
         record(snapshot: sut.snapshot(), named: "EMPTY_FEED")
     }
     
-    func test_adS() {
+    func test_feedWithContent() {
         let sut = makeSUT()
         
         sut.display(feedWithContent())
         
         record(snapshot: sut.snapshot(), named: "FEED_WITH_CONTENT")
+    }
+    
+    func test_feedWithErrorMessage() {
+        let sut = makeSUT()
+        
+        sut.display(.error(message: "An error message\ndfsf"))
+        
+        record(snapshot: sut.snapshot(), named: "FEED_WITH_ERROR_MESSAGE")
     }
     
     //MARK: - Helpers
