@@ -20,6 +20,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="390" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0He-vY-SV0">
+                                    <rect key="frame" x="7" y="6.9999999999999982" width="376" height="20.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hK-HC-e1N">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -31,12 +37,6 @@
                                         <action selector="hideMessage" destination="kvq-4E-WzQ" eventType="touchUpInside" id="aU5-zU-zzV"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0He-vY-SV0">
-                                    <rect key="frame" x="7" y="6.9999999999999982" width="376" height="20.333333333333329"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.99951404330000004" green="0.41759261489999999" blue="0.4154433012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <gestureRecognizers/>
@@ -51,6 +51,7 @@
                                 <constraint firstItem="1hK-HC-e1N" firstAttribute="leading" secondItem="kvq-4E-WzQ" secondAttribute="leading" id="qYy-bW-d3M"/>
                             </constraints>
                             <connections>
+                                <outlet property="button" destination="1hK-HC-e1N" id="nGC-X9-1sF"/>
                                 <outlet property="label" destination="0He-vY-SV0" id="iQ7-G8-62N"/>
                             </connections>
                         </view>
