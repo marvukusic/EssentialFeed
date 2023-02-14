@@ -388,6 +388,23 @@
 			path = "Shared API Infra";
 			sourceTree = "<group>";
 		};
+		AD78AFCD299BA832009A0FEE /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				AD78AFC1299B9838009A0FEE /* RemoteImageCommentsLoader.swift */,
+				AD78AFC3299B98C6009A0FEE /* ImageCommentsMapper.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
+		AD78AFCE299BA849009A0FEE /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				AD78AFBF299B975F009A0FEE /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
 		AD8151B628A691080084CDB7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +610,7 @@
 				ADA9ABF428A3F7DD00FD44CF /* Feed Cache */,
 				ADF269D528903CE800852B52 /* Feed Feature */,
 				AD78AFC5299B9D80009A0FEE /* Image Comments Feature */,
+				AD78AFCD299BA832009A0FEE /* Image Comments API */,
 				ADF26A0728928FCC00852B52 /* Feed API */,
 				ADF269CC28903CDF00852B52 /* EssentialFeed.h */,
 			);
@@ -620,6 +638,7 @@
 				ADCCFF5F28996CDF00342B27 /* Helpers */,
 				ADA9ABE028A2850200FD44CF /* Feed Cache */,
 				ADF26A102894343100852B52 /* FeedAPI */,
+				AD78AFCE299BA849009A0FEE /* Image Comments API */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -632,8 +651,6 @@
 				ADC77B7A291D5448000DDB48 /* RemoteFeedImageDataLoader.swift */,
 				ADF26A0E28942C5E00852B52 /* FeedItemsMapper.swift */,
 				ADA9ABFD28A5380900FD44CF /* RemoteFeedItem.swift */,
-				AD78AFC1299B9838009A0FEE /* RemoteImageCommentsLoader.swift */,
-				AD78AFC3299B98C6009A0FEE /* ImageCommentsMapper.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -643,7 +660,6 @@
 			children = (
 				ADF269EC2890420A00852B52 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				ADC77B75291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
-				AD78AFBF299B975F009A0FEE /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
