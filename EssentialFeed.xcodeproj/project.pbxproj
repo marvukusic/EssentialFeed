@@ -574,13 +574,13 @@
 			children = (
 				ADC77B7C291D58E2000DDB48 /* Helpers */,
 				ADF26A0828928FFE00852B52 /* RemoteFeedLoader.swift */,
-				ADF26A0E28942C5E00852B52 /* FeedItemsMapper.swift */,
-				ADF26A0C28942BED00852B52 /* HTTPClient.swift */,
-				ADCCFF63289AB46100342B27 /* URLSessionHTTPClient.swift */,
-				ADA9ABFD28A5380900FD44CF /* RemoteFeedItem.swift */,
 				ADC77B7A291D5448000DDB48 /* RemoteFeedImageDataLoader.swift */,
+				ADF26A0E28942C5E00852B52 /* FeedItemsMapper.swift */,
+				ADA9ABFD28A5380900FD44CF /* RemoteFeedItem.swift */,
 				AD78AFC1299B9838009A0FEE /* RemoteImageCommentsLoader.swift */,
 				AD78AFC3299B98C6009A0FEE /* ImageCommentsMapper.swift */,
+				ADF26A0C28942BED00852B52 /* HTTPClient.swift */,
+				ADCCFF63289AB46100342B27 /* URLSessionHTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -591,8 +591,8 @@
 				ADC77B77291D53BA000DDB48 /* Helpers */,
 				ADF269EC2890420A00852B52 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				ADC77B75291D3E8B000DDB48 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
-				ADBC2D2628953A7C006A16DF /* URLSessionHTTPClientTests.swift */,
 				AD78AFBF299B975F009A0FEE /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+				ADBC2D2628953A7C006A16DF /* URLSessionHTTPClientTests.swift */,
 			);
 			path = FeedAPI;
 			sourceTree = "<group>";
