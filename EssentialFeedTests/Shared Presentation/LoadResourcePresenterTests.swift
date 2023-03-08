@@ -31,13 +31,13 @@ final class LoadResourcePresenterTests: XCTestCase {
         XCTAssertEqual(view.messages, [.display(resourceViewModel: "resource view model"), .display(isLoading: false)])
     }
     
-    func test_didFinishLoadingFeedWithError_dispaysLocalizedErrorMessage() {
+    func test_didFinishLoadingWithError_dispaysLocalizedErrorMessageAndStopsLoading() {
         let (sut, view) = makeSUT()
         let error = anyNSError()
         
-        sut.didFinishLoadingFeed(with: error)
+        sut.didFinishLoading(with: error)
         
-        XCTAssertEqual(view.messages, [.display(errorMessage: localized("FEED_VIEW_CONNECTION_ERROR")), .display(isLoading: false)])
+        XCTAssertEqual(view.messages, [.display(errorMessage: localized("GENERIC_CONNECTION_ERROR")), .display(isLoading: false)])
     }
     
     // MARK: - Helpers
