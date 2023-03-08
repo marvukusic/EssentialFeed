@@ -1,5 +1,5 @@
 //
-//  LoadFeedImageDataFromRemoteUseCaseTests.swift
+//  LoadFeedImageDataFromRemoteUseCaseTests.swift/Users/marko/Development/Playground/EssentialDev/EssentialFeed/EssentialFeedTests/FeedAPI
 //  EssentialFeedTests
 //
 //  Created by Marko Vukušić on 10.11.2022..
