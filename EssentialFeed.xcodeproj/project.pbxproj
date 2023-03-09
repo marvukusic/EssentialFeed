@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD00DB7129BA172500BF4B23 /* ResourceLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD00DB7029BA172500BF4B23 /* ResourceLoadingView.swift */; };
+		AD00DB7329BA17BC00BF4B23 /* ResourceErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD00DB7229BA17BC00BF4B23 /* ResourceErrorView.swift */; };
 		AD1C73F829092EE300093B8B /* FeeedPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C73F729092EE300093B8B /* FeeedPresenterTests.swift */; };
 		AD1C73FA2909370300093B8B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C73F92909370300093B8B /* ErrorView.swift */; };
 		AD1C73FD29093B5400093B8B /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C73FC29093B5400093B8B /* UIRefreshControl+Helpers.swift */; };
@@ -16,7 +17,7 @@
 		AD1C740F2909595100093B8B /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = AD1C74052909562400093B8B /* Feed.strings */; };
 		AD1C7411290959AA00093B8B /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7410290959AA00093B8B /* FeedViewModel.swift */; };
 		AD1C7413290959BE00093B8B /* ResourceLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7412290959BE00093B8B /* ResourceLoadingViewModel.swift */; };
-		AD1C7415290959CA00093B8B /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7414290959CA00093B8B /* FeedErrorViewModel.swift */; };
+		AD1C7415290959CA00093B8B /* ResourceErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C7414290959CA00093B8B /* ResourceErrorViewModel.swift */; };
 		AD1C741629095B7B00093B8B /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADDDED8028E48EF800D90590 /* FeedLocalizationTests.swift */; };
 		AD1C74182909666D00093B8B /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1C74172909666D00093B8B /* FeedImagePresenterTests.swift */; };
 		AD3E8AD9290C230900268C1A /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3E8AD8290C230900268C1A /* FeedImagePresenter.swift */; };
@@ -156,6 +157,7 @@
 
 /* Begin PBXFileReference section */
 		AD00DB7029BA172500BF4B23 /* ResourceLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadingView.swift; sourceTree = "<group>"; };
+		AD00DB7229BA17BC00BF4B23 /* ResourceErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorView.swift; sourceTree = "<group>"; };
 		AD1C73F729092EE300093B8B /* FeeedPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeedPresenterTests.swift; sourceTree = "<group>"; };
 		AD1C73F92909370300093B8B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		AD1C73FC29093B5400093B8B /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
@@ -164,7 +166,7 @@
 		AD1C740C2909578D00093B8B /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		AD1C7410290959AA00093B8B /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		AD1C7412290959BE00093B8B /* ResourceLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceLoadingViewModel.swift; sourceTree = "<group>"; };
-		AD1C7414290959CA00093B8B /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
+		AD1C7414290959CA00093B8B /* ResourceErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceErrorViewModel.swift; sourceTree = "<group>"; };
 		AD1C74172909666D00093B8B /* FeedImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenterTests.swift; sourceTree = "<group>"; };
 		AD3E8AD8290C230900268C1A /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
 		AD3E8ADA290C241000268C1A /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
@@ -326,7 +328,6 @@
 				AD1C74052909562400093B8B /* Feed.strings */,
 				AD1C740C2909578D00093B8B /* FeedPresenter.swift */,
 				AD1C7410290959AA00093B8B /* FeedViewModel.swift */,
-				AD1C7414290959CA00093B8B /* FeedErrorViewModel.swift */,
 				AD3E8AD8290C230900268C1A /* FeedImagePresenter.swift */,
 				AD3E8ADA290C241000268C1A /* FeedImageViewModel.swift */,
 			);
@@ -575,9 +576,11 @@
 			isa = PBXGroup;
 			children = (
 				ADE2E70E29B8A50D00A4CF50 /* LoadResourcePresenter.swift */,
-				ADE2E71429B8ADE000A4CF50 /* Shared.strings */,
 				AD00DB7029BA172500BF4B23 /* ResourceLoadingView.swift */,
 				AD1C7412290959BE00093B8B /* ResourceLoadingViewModel.swift */,
+				AD00DB7229BA17BC00BF4B23 /* ResourceErrorView.swift */,
+				AD1C7414290959CA00093B8B /* ResourceErrorViewModel.swift */,
+				ADE2E71429B8ADE000A4CF50 /* Shared.strings */,
 			);
 			path = SharedPresentation;
 			sourceTree = "<group>";
@@ -986,7 +989,8 @@
 				AD81524628B909C80084CDB7 /* ManagedCache.swift in Sources */,
 				ADE2E70F29B8A50D00A4CF50 /* LoadResourcePresenter.swift in Sources */,
 				ADCCFF64289AB46100342B27 /* URLSessionHTTPClient.swift in Sources */,
-				AD1C7415290959CA00093B8B /* FeedErrorViewModel.swift in Sources */,
+				AD1C7415290959CA00093B8B /* ResourceErrorViewModel.swift in Sources */,
+				AD00DB7329BA17BC00BF4B23 /* ResourceErrorView.swift in Sources */,
 				ADC77B74291D3E29000DDB48 /* FeedImageDataLoader.swift in Sources */,
 				AD1C7413290959BE00093B8B /* ResourceLoadingViewModel.swift in Sources */,
 				AD00DB7129BA172500BF4B23 /* ResourceLoadingView.swift in Sources */,
