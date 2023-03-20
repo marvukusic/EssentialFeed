@@ -341,10 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				AD72ABA528CA2BEE00630ED4 /* UIView+Shimmering.swift */,
-				ADDDED0928E1F1D500D90590 /* UITableView+Dequeing.swift */,
 				ADDDED0B28E1F23A00D90590 /* UIImageView+Animations.swift */,
-				AD1C73FC29093B5400093B8B /* UIRefreshControl+Helpers.swift */,
-				AD57132A298D201E00780A50 /* UITableView+HeaderSizing.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -385,6 +382,42 @@
 			children = (
 			);
 			path = snapshots;
+			sourceTree = "<group>";
+		};
+		AD682D8B29C882300004A25C /* Shared UI */ = {
+			isa = PBXGroup;
+			children = (
+				AD682D8D29C882720004A25C /* Views */,
+				AD682D8C29C8826B0004A25C /* Controllers */,
+			);
+			path = "Shared UI";
+			sourceTree = "<group>";
+		};
+		AD682D8C29C8826B0004A25C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD72ABA028C7472E00630ED4 /* ListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AD682D8D29C882720004A25C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD682D8E29C882810004A25C /* Helpers */,
+				AD1C73F92909370300093B8B /* ErrorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AD682D8E29C882810004A25C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ADDDED0928E1F1D500D90590 /* UITableView+Dequeing.swift */,
+				AD1C73FC29093B5400093B8B /* UIRefreshControl+Helpers.swift */,
+				AD57132A298D201E00780A50 /* UITableView+HeaderSizing.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		AD78AFC5299B9D80009A0FEE /* Image Comments Feature */ = {
@@ -500,7 +533,6 @@
 		AD84E6CA28D0BED8005B3762 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AD72ABA028C7472E00630ED4 /* ListViewController.swift */,
 				AD84E6D528D2251F005B3762 /* FeedImageCellController.swift */,
 			);
 			path = Controllers;
@@ -511,7 +543,6 @@
 			children = (
 				AD1C73FB29093A9100093B8B /* Helpers */,
 				AD72ABA228C8AD8100630ED4 /* FeedImageCell.swift */,
-				AD1C73F92909370300093B8B /* ErrorView.swift */,
 				ADDDED0528E1E21B00D90590 /* Feed.storyboard */,
 				ADDDED0728E1E2A000D90590 /* Feed.xcassets */,
 			);
@@ -585,6 +616,7 @@
 		ADE28EDD28C6182900349815 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
+				AD682D8B29C882300004A25C /* Shared UI */,
 				AD84E6C928D0BECD005B3762 /* Feed UI */,
 			);
 			path = EssentialFeediOS;
