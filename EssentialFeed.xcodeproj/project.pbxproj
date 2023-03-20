@@ -371,6 +371,22 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		AD682D8929C8644C0004A25C /* FeedUI */ = {
+			isa = PBXGroup;
+			children = (
+				AD682D8A29C864640004A25C /* snapshots */,
+				AD571325298D128D00780A50 /* FeedSnapshotTests.swift */,
+			);
+			path = FeedUI;
+			sourceTree = "<group>";
+		};
+		AD682D8A29C864640004A25C /* snapshots */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = snapshots;
+			sourceTree = "<group>";
+		};
 		AD78AFC5299B9D80009A0FEE /* Image Comments Feature */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,7 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				AD571327298D1CBC00780A50 /* Helpers */,
-				AD571325298D128D00780A50 /* FeedSnapshotTests.swift */,
+				AD682D8929C8644C0004A25C /* FeedUI */,
 			);
 			path = EssentialFeediOSTests;
 			sourceTree = "<group>";
