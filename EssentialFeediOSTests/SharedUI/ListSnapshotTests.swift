@@ -40,7 +40,7 @@ class ListSnapshotTests: XCTestCase {
         return controller
     }
     
-    private func emptyFeed() -> [CellControler] {
+    private func emptyFeed() -> [CellController] {
         return []
     }
 }

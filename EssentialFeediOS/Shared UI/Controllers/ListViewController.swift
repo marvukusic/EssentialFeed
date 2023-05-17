@@ -11,7 +11,7 @@ import EssentialFeed
 final public class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     private(set) public var errorView = ErrorView()
     
-    private lazy var dataSource: UITableViewDiffableDataSource<Int, CellControler> = {
+    private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
         .init(tableView: tableView) { tableView, indexPath, controller in
             controller.dataSource.tableView(tableView, cellForRowAt: indexPath)
         }
@@ -54,8 +54,8 @@ final public class ListViewController: UITableViewController, UITableViewDataSou
         onRefresh?()
     }
     
-    public func display(_ sections: [CellControler]...) {
-        var snapshot = NSDiffableDataSourceSnapshot<Int, CellControler>()
+    public func display(_ sections: [CellController]...) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
         sections.enumerated().forEach { section, cellControllers in
             snapshot.appendSections([section])
             snapshot.appendItems(cellControllers, toSection: section)
@@ -109,7 +109,7 @@ final public class ListViewController: UITableViewController, UITableViewDataSou
         }
     }
     
-    private func cellController(at indexPath: IndexPath) -> CellControler? {
+    private func cellController(at indexPath: IndexPath) -> CellController? {
         dataSource.itemIdentifier(for: indexPath)
     }
 }

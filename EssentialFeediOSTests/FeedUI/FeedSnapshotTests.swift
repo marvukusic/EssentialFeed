@@ -38,6 +38,16 @@ class FeedSnapshotTests: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_LOAD_MORE_INDICATOR_dark")
     }
     
+    func test_feedWithLoadMoreError() {
+        let sut = makeSUT()
+        
+        sut.display(feedWithLoadMoreError())
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_LOAD_MORE_ERROR_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_LOAD_MORE_ERROR_dark")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark, contentSize: .extraExtraExtraLarge)), named: "FEED_WITH_LOAD_MORE_ERROR_extraExtraExtraLarge")
+    }
+    
     //MARK: - Helpers
     
     private func makeSUT() -> ListViewController {
@@ -80,26 +90,36 @@ class FeedSnapshotTests: XCTestCase {
         ]
     }
     
-    private func feedWithLoadMoreIndicator() -> [CellControler] {
-        let stub = feedWithContent().last!
-        let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub, selection: {} )
-        stub.controller = cellController
-        
+    private func feedWithLoadMoreIndicator() -> [CellController] {
         let loadMore = LoadMoreCellController()
         loadMore.display(ResourceLoadingViewModel(isLoading: true))
+        return feedWith(loadMore: loadMore)
+    }
+    
+    private func feedWithLoadMoreError() -> [CellController] {
+        let loadMore = LoadMoreCellController()
+        loadMore.display(ResourceErrorViewModel(message: "This is a multiline\nerror message"))
+        return feedWith(loadMore: loadMore)
+    }
+    
+    private func feedWith(loadMore: LoadMoreCellController) -> [CellController] {
+        let stub = feedWithContent().last!
+        let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub, selection: {})
+        stub.controller = cellController
+        
         return [
-            CellControler(id: UUID(), cellController),
-            CellControler(id: UUID(), loadMore)
+            CellController(id: UUID(), cellController),
+            CellController(id: UUID(), loadMore)
         ]
     }
 }
 
 private extension ListViewController {
     func display(_ stubs: [ImageStub]) {
-        let cells: [CellControler] = stubs.map { stub in
+        let cells: [CellController] = stubs.map { stub in
             let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub, selection: {} )
             stub.controller = cellController
-            return CellControler(id: UUID(), cellController)
+            return CellController(id: UUID(), cellController)
         }
         
         display(cells)

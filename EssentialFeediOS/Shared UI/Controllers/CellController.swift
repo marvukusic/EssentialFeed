@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct CellControler {
+public struct CellController {
     let id: AnyHashable
     let dataSource: UITableViewDataSource
     let delegate: UITableViewDelegate?
@@ -21,12 +21,12 @@ public struct CellControler {
     }
 }
 
-extension CellControler: Equatable {
-    public static func == (lhs: CellControler, rhs: CellControler) -> Bool {
+extension CellController: Equatable {
+    public static func == (lhs: CellController, rhs: CellController) -> Bool {
         lhs.id == rhs.id
     }
 }
-extension CellControler: Hashable {
+extension CellController: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
