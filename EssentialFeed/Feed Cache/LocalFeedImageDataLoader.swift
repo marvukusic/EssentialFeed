@@ -14,6 +14,9 @@ public final class LocalFeedImageDataLoader {
         self.store = store
     }
     
+}
+
+extension LocalFeedImageDataLoader: FeedImageDataLoader {
     public func loadImageData(from url: URL) throws -> Data {
         do {
             if let imageData = try store.retrieve(dataForURL: url) {
