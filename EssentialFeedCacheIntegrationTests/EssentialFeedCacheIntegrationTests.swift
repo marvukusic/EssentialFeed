@@ -154,16 +154,11 @@ class EssentialFeedCacheIntegrationTests: XCTestCase {
     }
     
     private func save(_ feed: [FeedImage], with sut: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
-        let exp = expectation(description: "Waiting for save")
-        sut.save(feed) { result in
-            switch result {
-            case let .failure(error):
-                XCTFail("Error saving feed with: \(error)", file: file, line: line)
-            case .success:
-                exp.fulfill()
-            }
+        do {
+            try sut.save(feed)
+        } catch {
+            XCTFail("Expected to save feed successfully, got error: \(error)", file: file, line: line)
         }
-        wait(for: [exp], timeout: 5.0)
     }
     
     private func save(_ data: Data, for url: URL, with loader: LocalFeedImageDataLoader, file: StaticString = #file, line: UInt = #line) {
